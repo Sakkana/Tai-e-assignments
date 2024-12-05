@@ -28,7 +28,7 @@ import pascal.taie.analysis.graph.cfg.Edge;
 /**
  * Template interface for defining data-flow analysis.
  *
- * @param <Node> type of CFG nodes
+// * @param <Node> type of CFG nodes
  * @param <Fact> type of data-flow facts
  */
 public interface DataflowAnalysis<Node, Fact> {

@@ -1,0 +1,1 @@
+sudo ./gradlew run --args="-cp src/test/resources/dataflow/livevar -m Assign"

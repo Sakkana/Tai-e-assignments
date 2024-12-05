@@ -82,10 +82,17 @@ public final class Tests {
         }
         // set up result processor
         String action = GENERATE_EXPECTED_RESULTS ? "dump" : "compare";
+
+        // 正确答案所在的文件
         String file = getExpectedFile(classPath, main, id);
         String processArg = String.format("%s=analyses:[%s];action:%s;file:%s",
                 ResultProcessor.ID, id, action, file);
         Collections.addAll(args, "-a", processArg);
+
+        // 测试命令
+        String testcaseCmdString = String.join(" ", args.toArray(new String[0]));
+        System.out.println("测试命令: " + testcaseCmdString);
+
         Main.main(args.toArray(new String[0]));
         if (action.equals("compare")) {
             Set<String> mismatches = World.get().getResult(ResultProcessor.ID);
@@ -118,6 +125,8 @@ public final class Tests {
         ptaArgs.add("implicit-entries:false");
         String action = GENERATE_EXPECTED_RESULTS ? "dump" : "compare";
         ptaArgs.add("action:" + action);
+
+        // 正确答案所在的文件
         String file = getExpectedFile(classPath, main, id);
         ptaArgs.add("file:" + file);
         boolean specifyOnlyApp = false;
@@ -137,7 +146,7 @@ public final class Tests {
 
     /**
      * @param dir  the directory containing the test case
-     * @param main main class of the test case
+     * @param main maMainin class of the test case
      * @param id   analysis ID
      * @return the expected file for given test case and analysis.
      */

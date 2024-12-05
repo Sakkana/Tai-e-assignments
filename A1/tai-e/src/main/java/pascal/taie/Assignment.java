@@ -36,6 +36,7 @@ public class Assignment {
             List<String> argList = new ArrayList<>();
             Collections.addAll(argList, "-pp", "-p", "plan.yml");
             Collections.addAll(argList, args);
+            String cmdArgSTring = String.join(" ", args);
             Main.main(argList.toArray(new String[0]));
         } else {
             System.out.println("Usage: -cp <CLASS_PATH> -m <CLASS_NAME>");
